@@ -1,24 +1,27 @@
-// VARIABLES DECLARATION IN THE DOM
-const eyeOn = document.querySelector('.eye-on');
-const eyeOff = document.querySelector('.eye-off');
-const inputPassword = document.querySelector('#inputPassword');
+document.addEventListener('DOMContentLoaded', function () {
+    // Variables declaration in the DOM
+    const eyeOn = document.querySelector('.eye-on');
+    const eyeOff = document.querySelector('.eye-off');
+    const inputPassword = document.querySelector('#inputPassword');
 
-//INITAL STATE
-eyeOff.style.display = "none";
+    // Check if elements exist
+    // if (!eyeOn || !eyeOff || !inputPassword) {
+    //     console.error('One or more required elements are missing!');
+    //     return; // Stop the execution if elements are missing
+    // }
 
-//FUNCTIONS DECLARATION
-function showPassword() {
-    eyeOn.style.display = "none";
-    eyeOff.style.display = "block";
-    inputPassword.type = "text";
-}
+    // Initial state setup using CSS class
+    eyeOff.classList.add('hidden');
 
-function hidePassword() {
-    eyeOn.style.display = "block";
-    eyeOff.style.display = "none";
-    inputPassword.type = "password";
-}
+    // Function to toggle password visibility
+    function togglePasswordVisibility() {
+        const isPasswordVisible = inputPassword.type === 'password';
+        inputPassword.type = isPasswordVisible ? 'text' : 'password';
+        eyeOn.classList.toggle('hidden');
+        eyeOff.classList.toggle('hidden');
+    }
 
-//INVOKE
-eyeOn.onclick = () => showPassword();
-eyeOff.onclick = () => hidePassword();
+    // Adding event listeners
+    eyeOn.addEventListener('click', togglePasswordVisibility);
+    eyeOff.addEventListener('click', togglePasswordVisibility);
+});

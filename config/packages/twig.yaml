@@ -1,5 +1,10 @@
 twig:
     file_name_pattern: '*.twig'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    globals:
+        description: 'formation'
+        admin_name: 'Kevin Rousselet'
+        admin_email: 'adamrodwebdev@gmail.com'
 
 when@test:
     twig:

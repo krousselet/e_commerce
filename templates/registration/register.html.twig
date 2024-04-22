@@ -6,13 +6,17 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-
-    <h1>Enregistrement</h1>
-
+    </section>
+    <section>
+        <h1>Enregistrement</h1>
+    </section>
+    <section>
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.first_name) }}
+        {{ form_row(registrationForm.last_name) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe :'
         }) }}
